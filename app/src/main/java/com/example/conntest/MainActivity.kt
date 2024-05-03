@@ -1,43 +1,34 @@
 package com.example.conntest
 
-import android.Manifest
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.LinkProperties
 import android.net.Network
 import android.os.Bundle
-import android.telephony.TelephonyManager
-import android.telephony.data.NetworkSlicingConfig
-import android.text.method.MovementMethod
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.util.concurrent.CompletableFuture
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        var telephonyManager = getSystemService(Context.TELEPHONY_SERVICE)
-        if (telephonyManager is TelephonyManager) {
-            telephonyManager.carrierConfig.toString()
-        }
-    }
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//
+//        var telephonyManager = getSystemService(Context.TELEPHONY_SERVICE)
+//        if (telephonyManager is TelephonyManager) {
+//            telephonyManager.carrierConfig.toString()
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,15 +75,15 @@ class MainActivity : AppCompatActivity() {
 //        text += "\n\n...\n\n" + resultFuture.toString()
 
 
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_PHONE_STATE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.READ_PHONE_STATE), 1);
-            return
-        }
+//        if (ActivityCompat.checkSelfPermission(
+//                this,
+//                Manifest.permission.READ_PHONE_STATE
+//            ) != PackageManager.PERMISSION_GRANTED
+//        ) {
+//            ActivityCompat.requestPermissions(this,
+//                arrayOf(Manifest.permission.READ_PHONE_STATE), 1);
+//            return
+//        }
 
         val tv = findViewById<TextView>(R.id.textView1)
         tv.setPadding(50, 0, 50, 0)
